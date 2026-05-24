@@ -1,34 +1,30 @@
 # Personal Portfolio Website
 
-A personal portfolio website showcasing my skills, 
-projects and experience.
-
-## 🌐 Live Demo
-[Click here to view portfolio](#)
+A React portfolio website for Divyanshu Singh Chauhan, showcasing skills, education, contact details and public GitHub projects.
 
 ## Features
-- Responsive Design
-- About Me Section
-- Skills Section
-- Projects Section
-- Contact Section
+
+- Responsive React interface
+- About, skills, education and GitHub projects sections
+- Project filters for React, Android, Python, web, Java and C
+- Contact links and copy email action
+- Scroll progress and back-to-top control
 
 ## Technologies Used
-- HTML5
+
+- React
 - CSS3
 - JavaScript
-
-## Sections
-- Home / Hero
-- About Me
-- Skills
-- Projects
-- Contact
+- Babel Standalone
 
 ## How to Run
-1. Download or clone the repository
-2. Open index.html in any browser
-3. Done!
+
+1. Open the project folder in VS Code
+2. Right-click `index.html`
+3. Click `Open with Live Server`
+
+This version also uses React, loaded directly in the browser for Live Server.
 
 ## Connect With Me
-- GitHub: github.com/divyanshu12413005
+
+- GitHub: https://github.com/divyanshu12413005

@@ -31,11 +31,11 @@ html{
     margin: auto;
 }
 .sidebar{
-    height: 90vh;
+    height: auto;
     background-color: #2a2a2a;
     border: 1px solid #3a3a3a;
     border-radius: 16px;
-    padding: 40px;
+    padding: 40px 40px 48px;
     position: sticky;
     top: 40px;
 
@@ -127,6 +127,7 @@ html{
 /*social information*/
 .social{
     margin-top: 30px;
+    margin-bottom: 6px;
     border-top: 2px solid #3a3a3a;
     padding-top: 20px;
     text-align: center;
