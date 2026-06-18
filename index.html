@@ -8,13 +8,235 @@
       content="Portfolio of Divyanshu Singh Chauhan, a Data Science and Analytics student learning React, Python, Kotlin and Android development."
     />
     <title>Divyanshu Singh Chauhan | Portfolio</title>
-    <link rel="stylesheet" href="./src/App.css" />
+    <link rel="stylesheet" href="./portfolio.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="./src/App.jsx"></script>
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <main class="main-container">
+      <aside class="sidebar" aria-label="Profile and contact">
+        <section class="profile">
+          <img src="./divyaimg.png" alt="Divyanshu Singh Chauhan" />
+          <h2>Divyanshu Singh Chauhan</h2>
+          <p id="role-text">Frontend Developer</p>
+        </section>
+
+        <section class="contact" aria-label="Contact details">
+          <div class="email">
+            <p class="label">Email</p>
+            <a class="value" id="email-link" href="mailto:divyanshusinghdsa12413005@iiitsonepat.ac.in">
+              divyanshusinghdsa12413005@iiitsonepat.ac.in
+            </a>
+            <button class="copy-btn" id="copy-email" type="button">Copy Email</button>
+          </div>
+
+          <div class="phone">
+            <p class="label">Phone</p>
+            <a class="value" href="tel:7355442326">7355442326</a>
+          </div>
+
+          <div>
+            <p class="label">Location</p>
+            <p class="value">Ballia, U.P.</p>
+          </div>
+        </section>
+
+        <section class="social" aria-label="Social links">
+          <a href="https://x.com/Divyans51305601" aria-label="X profile">
+            <img src="https://simpleicons.org/icons/x.svg" alt="" />
+          </a>
+          <a href="https://github.com/divyanshu12413005" aria-label="GitHub profile">
+            <img src="https://simpleicons.org/icons/github.svg" alt="" />
+          </a>
+          <a href="https://www.linkedin.com/in/divyanshu-singh-chauhan-390264307/" aria-label="LinkedIn profile">
+            <img src="https://www.svgrepo.com/show/57068/linkedin.svg" alt="" />
+          </a>
+        </section>
+      </aside>
+
+      <section class="main-content">
+        <header id="navigation">
+          <nav aria-label="Main navigation">
+            <a class="active" href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#portfolio">Portfolio</a>
+          </nav>
+        </header>
+
+        <section id="about">
+          <h1 class="heading">About Me</h1>
+          <div class="Line"></div>
+          <div class="content">
+            <p>
+              I am a B.Tech undergraduate in Data Science and Analytics at IIIT Sonepat, learning by building
+              practical projects. Along with C, C++, Java, data structures and web fundamentals, I have recently
+              added Python, React, Android development and Kotlin to my growing skill set.
+            </p>
+            <p>
+              I enjoy creating responsive web interfaces and Android apps, and I am publishing my learning projects
+              on GitHub as I improve. My goal is to keep growing as a developer while building a strong path toward
+              data science and real-world problem solving.
+            </p>
+          </div>
+        </section>
+
+        <section id="skills">
+          <h2 class="heading">Skills</h2>
+          <div class="Line"></div>
+          <div class="grid-container">
+            <article class="item">
+              <img src="https://simpleicons.org/icons/html5.svg" alt="" />
+              <h3>HTML5</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/css.svg" alt="" />
+              <h3>CSS3</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/javascript.svg" alt="" />
+              <h3>JavaScript</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/react.svg" alt="" />
+              <h3>React</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/python.svg" alt="" />
+              <h3>Python</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/kotlin.svg" alt="" />
+              <h3>Kotlin</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/android.svg" alt="" />
+              <h3>Android</h3>
+            </article>
+            <article class="item">
+              <img src="https://simpleicons.org/icons/openjdk.svg" alt="" />
+              <h3>Java</h3>
+            </article>
+          </div>
+        </section>
+
+        <section id="education">
+          <h2 class="heading">Education</h2>
+          <div class="Line"></div>
+          <div class="edtech">
+            <div class="liner"></div>
+            <article class="edfirst">
+              <div class="goal"></div>
+              <p class="year">2024 - 2028</p>
+              <h3 class="degree">Bachelor of Technology in Data Science and Analytics</h3>
+              <p class="college">Indian Institute of Information Technology, Sonepat</p>
+              <p class="work">
+                Building foundations in programming, data structures, frontend development, Android development and
+                data science.
+              </p>
+            </article>
+
+            <article class="edsecond">
+              <div class="goal"></div>
+              <p class="year">2022 - 2023</p>
+              <h3 class="degree">Senior Secondary Education Class XII</h3>
+              <p class="college">CBSE</p>
+              <p class="work">Science stream.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="portfolio">
+          <h2 class="heading">GitHub Projects</h2>
+          <div class="Line"></div>
+
+          <div class="filter-controls" aria-label="Project filters">
+            <button class="filter-btn active-filter" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="react">React</button>
+            <button class="filter-btn" type="button" data-filter="android">Android</button>
+            <button class="filter-btn" type="button" data-filter="python">Python</button>
+            <button class="filter-btn" type="button" data-filter="web">Web</button>
+            <button class="filter-btn" type="button" data-filter="java">Java</button>
+            <button class="filter-btn" type="button" data-filter="c">C</button>
+          </div>
+
+          <div class="project-container">
+            <article class="project" data-tags="android kotlin">
+              <div class="card">
+                <h3>Blog-App</h3>
+                <p>An Android blog app built with Kotlin in Android Studio.</p>
+                <span>Android</span>
+                <span>Kotlin</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Blog-App">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="android kotlin">
+              <div class="card">
+                <h3>Weather-App</h3>
+                <p>An Android weather app built with Kotlin that shows real-time weather information.</p>
+                <span>Android</span>
+                <span>Kotlin</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Weather-App">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="web html css javascript">
+              <div class="card">
+                <h3>Web-Designing</h3>
+                <p>Semester 2 web designing project code covering HTML, CSS and JavaScript.</p>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Web-Designing">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="react web">
+              <div class="card">
+                <h3>Portfolio-Website</h3>
+                <p>Personal portfolio website showcasing skills, learning progress and projects.</p>
+                <span>React</span>
+                <span>Portfolio</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Portfolio-Website">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="python">
+              <div class="card">
+                <h3>Python</h3>
+                <p>Python practice covering basics, loops, functions, modules and data structures.</p>
+                <span>Python</span>
+                <span>Learning</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Python">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="java">
+              <div class="card">
+                <h3>Java-Learning</h3>
+                <p>Java practice covering OOP, inheritance, exception handling and collections.</p>
+                <span>Java</span>
+                <span>Learning</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/Java-Learning">View on GitHub</a></p>
+              </div>
+            </article>
+
+            <article class="project" data-tags="c">
+              <div class="card">
+                <h3>C-Programming</h3>
+                <p>C programming practice and learning code.</p>
+                <span>C</span>
+                <span>Programming</span>
+                <p><a class="value" href="https://github.com/divyanshu12413005/C-Programming">View on GitHub</a></p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <button class="top-btn" id="top-btn" type="button" aria-label="Back to top">&uarr;</button>
+    <script src="./portfolio.js"></script>
   </body>
 </html>
