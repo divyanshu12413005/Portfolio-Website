@@ -1,7 +1,12 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const roleText = document.getElementById("role-text");
-const roles = ["Frontend Developer", "Data Science and Analytics Student", "Problem Solver", "Future Data Scientist"];
+const roles = [
+    "Java & Spring Boot Learner",
+    "DSA with Java",
+    "Android Development Learner",
+    "Python & ML Basics"
+];
 let roleIndex = 0;
 let letterIndex = 0;
 let deleting = false;
@@ -13,7 +18,7 @@ function typeRole() {
 
     const currentRole = roles[roleIndex];
     roleText.textContent = deleting
-        ? currentRole.slice(0, letterIndex - 1)
+        ? currentRole.slice(0, Math.max(letterIndex - 1, 0))
         : currentRole.slice(0, letterIndex + 1);
 
     letterIndex = deleting ? letterIndex - 1 : letterIndex + 1;
@@ -29,7 +34,7 @@ function typeRole() {
         roleIndex = (roleIndex + 1) % roles.length;
     }
 
-    setTimeout(typeRole, deleting ? 45 : 80);
+    setTimeout(typeRole, deleting ? 42 : 76);
 }
 
 typeRole();
@@ -51,13 +56,13 @@ function updateScrollState() {
     }
 
     if (topButton) {
-        topButton.classList.toggle("show", scrollTop > 400);
+        topButton.classList.toggle("show", scrollTop > 450);
     }
 
     const currentSection = sections
         .slice()
         .reverse()
-        .find((section) => scrollTop >= section.offsetTop - 140);
+        .find((section) => scrollTop >= section.offsetTop - 150);
 
     if (currentSection) {
         navLinks.forEach((link) => {
@@ -75,7 +80,9 @@ if (topButton) {
     });
 }
 
-const revealElements = document.querySelectorAll("#about, #skills, #education, #portfolio, .item, .project");
+const revealElements = document.querySelectorAll(
+    ".hero-copy, .profile-panel, .about-grid, .skill-group, .project-card, .learning-grid, .timeline article, .contact-section"
+);
 revealElements.forEach((element) => element.classList.add("reveal"));
 
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
@@ -88,7 +95,7 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
                 }
             });
         },
-        { threshold: 0.18 }
+        { threshold: 0.14 }
     );
 
     revealElements.forEach((element) => observer.observe(element));
@@ -97,7 +104,7 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
 }
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll(".project");
+const projects = document.querySelectorAll(".project-card");
 
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -110,28 +117,26 @@ filterButtons.forEach((button) => {
         projects.forEach((project) => {
             const tags = project.dataset.tags.split(" ");
             const shouldShow = selectedFilter === "all" || tags.includes(selectedFilter);
-            project.classList.toggle("hide", !shouldShow);
+            project.hidden = !shouldShow;
         });
     });
 });
 
 const copyEmailButton = document.getElementById("copy-email");
-const emailLink = document.getElementById("email-link");
+const email = "divyanshusinghdsa12413005@iiitsonepat.ac.in";
 
-if (copyEmailButton && emailLink) {
+if (copyEmailButton) {
     copyEmailButton.addEventListener("click", async () => {
-        const email = emailLink.textContent.trim();
-
         try {
             await copyText(email);
-            copyEmailButton.textContent = "Copied!";
+            copyEmailButton.textContent = "Copied";
         } catch (error) {
             copyEmailButton.textContent = "Copy failed";
         }
 
         setTimeout(() => {
             copyEmailButton.textContent = "Copy Email";
-        }, 1600);
+        }, 1500);
     });
 }
 
@@ -141,7 +146,7 @@ async function copyText(text) {
             await navigator.clipboard.writeText(text);
             return;
         } catch (error) {
-            // Some browsers block Clipboard API on local files, so use a classic fallback.
+            // Local file previews can block Clipboard API, so fall back to execCommand.
         }
     }
 
@@ -160,23 +165,3 @@ async function copyText(text) {
         throw new Error("Copy command failed");
     }
 }
-
-document.querySelectorAll(".item").forEach((item) => {
-    item.addEventListener("mousemove", (event) => {
-        if (prefersReducedMotion) {
-            return;
-        }
-
-        const rect = item.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const rotateX = ((y / rect.height) - 0.5) * -8;
-        const rotateY = ((x / rect.width) - 0.5) * 8;
-
-        item.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-
-    item.addEventListener("mouseleave", () => {
-        item.style.transform = "";
-    });
-});
