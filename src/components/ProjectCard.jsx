@@ -1,6 +1,14 @@
+import { useState } from "react";
+
 export default function ProjectCard({ project, onOpen }) {
+  const [imageUnavailable, setImageUnavailable] = useState(false);
   const contents = (
     <>
+      <span className={`project-preview project-preview-${project.id}`}>
+        {project.image && !imageUnavailable
+          ? <img src={`${import.meta.env.BASE_URL}${project.image}`} alt={project.imageAlt || `${project.title} project preview`} loading="lazy" onError={() => setImageUnavailable(true)} />
+          : <span className="project-preview-placeholder" aria-hidden="true"><span className="preview-window"><span className="preview-dots">•••</span><span className="preview-title">{project.title}</span><span className="preview-category">{project.category}</span></span></span>}
+      </span>
       <span className="project-category">{project.category}</span>
       <span className="project-card-title">{project.title}</span>
       <span className="project-description">{project.shortDesc}</span>

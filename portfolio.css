@@ -867,6 +867,10 @@ nav a.active {
         gap: 9px;
     }
 
+    .hero-actions .primary-btn {
+        grid-column: 1 / -1;
+    }
+
     .primary-btn,
     .secondary-btn {
         padding-inline: 10px;

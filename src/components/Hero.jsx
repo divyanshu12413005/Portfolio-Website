@@ -19,6 +19,7 @@ export default function Hero() {
         <div className="hero-actions">
           <a className="primary-btn" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
           <a className="secondary-btn" href="https://github.com/divyanshu12413005" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a className="secondary-btn" href={`${import.meta.env.BASE_URL}Divyanshu-Singh-Chauhan-Resume.pdf`} target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <aside className="profile-panel" aria-label="Profile summary">
@@ -26,6 +27,7 @@ export default function Hero() {
         <div className="profile-heading"><h2>Divyanshu Singh Chauhan</h2><p>B.Tech · IIIT Sonepat</p></div>
         <ul className="quick-info">
           <li><span>Focus</span><strong><span className="visually-hidden">Java, Backend, Android development</span><span className="focus-typewriter" aria-hidden="true">{focusText}</span></strong></li>
+          <li className="education-info"><span>Education</span><strong>CSE (DSA) · 2028</strong></li>
           <li><span>Location</span><strong>Ballia, Uttar Pradesh, India</strong></li>
         </ul>
       </aside>

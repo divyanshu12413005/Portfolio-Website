@@ -3,6 +3,7 @@ import { useReveal } from "../hooks/useReveal.js";
 
 const initialForm = { name: "", email: "", subject: "", message: "", botcheck: "" };
 const mailAddress = "divyanshusinghdsa12413005@iiitsonepat.ac.in";
+const phoneNumber = "7355442326";
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
@@ -29,12 +30,18 @@ export default function Contact() {
     setStatus({ type: "", message: "" });
     if (Object.keys(nextErrors).length) return;
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey || accessKey === "YOUR_ACCESS_KEY") {
+      setStatus({ type: "error", message: "The contact form is not configured yet. Please email or call me instead." });
+      return;
+    }
+
     setSending(true);
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: import.meta.env.VITE_WEB3FORMS_KEY, ...trimmed }),
+        body: JSON.stringify({ access_key: accessKey, ...trimmed }),
       });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error("Unable to send message.");
@@ -51,6 +58,7 @@ export default function Contact() {
     <section className={`section-shell contact-section contact-layout ${reveal.className}`} id="contact" ref={reveal.ref} aria-labelledby="contact-title">
       <div className="contact-intro"><p className="section-kicker">Contact</p><h2 id="contact-title">Let's connect</h2><p>Interested in thoughtful feedback, learning opportunities, and collaborating on useful projects.</p>
         <div className="contact-links" aria-label="Contact links">
+          <a className="contact-phone" href={`tel:${phoneNumber}`} aria-label={`Call ${phoneNumber}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9.2 3c.7-.2 1.4.1 1.7.8l1.1 2.6c.3.6.1 1.4-.4 1.8l-1.4 1.1a14 14 0 0 0 6.5 6.5l1.1-1.4c.4-.5 1.2-.7 1.8-.4l2.6 1.1c.7.3 1 .9.8 1.7l-.8 2.6c-.2.7-.8 1.1-1.5 1.1C10.4 20.5 3.5 13.6 3.5 5.3c0-.7.4-1.3 1.1-1.5Z" /></svg> {phoneNumber}</a>
           <a className="contact-icon-link email-icon" href={`mailto:${mailAddress}`} aria-label="Email">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17v11h-17z" /><path d="m4 7 8 6 8-6" /></svg>
           </a>
@@ -72,7 +80,7 @@ export default function Contact() {
         <div className="form-field"><label htmlFor="contact-message">Message <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" rows="5" minLength={10} value={form.message} onChange={update} required aria-invalid={Boolean(errors.message)} aria-describedby="message-error" /><small className="field-error" id="message-error">{errors.message}</small></div>
         <div className="honeypot" aria-hidden="true"><label htmlFor="contact-botcheck">Leave this field empty</label><input id="contact-botcheck" name="botcheck" value={form.botcheck} onChange={update} tabIndex={-1} autoComplete="off" /></div>
         <button className={`form-submit${sending ? " is-sending" : ""}`} type="submit" disabled={sending}><span className="submit-label">{sending ? "Sending…" : "Send message"}</span><span className="form-spinner" aria-hidden="true" /></button>
-        <p className={`form-status${status.type ? ` is-${status.type}` : ""}`} aria-live="polite" role="status">{status.message}{status.type === "error" && <> <a href={`mailto:${mailAddress}`}>{mailAddress}</a></>}</p>
+        <p className={`form-status${status.type ? ` is-${status.type}` : ""}`} aria-live="polite" role="status">{status.message}{status.type === "error" && <> <a href={`mailto:${mailAddress}`}>{mailAddress}</a> · <a href={`tel:${phoneNumber}`}>{phoneNumber}</a></>}</p>
       </form>
     </section>
   );

@@ -51,6 +51,7 @@ Put public image files in `public/`. Reference them as `${import.meta.env.BASE_U
 ## Project content
 
 - `src/data/projects.js` contains all project card and modal details.
+- Project cards support optional screenshots. Put optimized images in `public/projects/`, then add `image: "projects/your-image.webp"` and an `imageAlt` description to that project's entry in `src/data/projects.js`. Until an image is set, the card shows a styled preview placeholder.
 - `src/data/skills.js` contains the skill categories and chips.
 - `src/components/` contains the page sections and controls.
 - `portfolio.css` is the global theme stylesheet; `src/react.css` contains React interaction/layout rules.
